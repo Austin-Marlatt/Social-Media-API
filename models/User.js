@@ -30,6 +30,7 @@ const userSchema = new Schema(
       required: [true, "E-mail Required"]
     },
     // Array of id's that reference the `Thought` model
+    // Reference used to tell mongoose which model to use during population
     thoughts: [
       {
         type: Schema.Types.ObjectId,
@@ -37,6 +38,7 @@ const userSchema = new Schema(
       },
     ],
     // Array of id's that reference's itself
+    // Reference used to tell mongoose which model to use during population
     friends: [
       {
         type: Schema.Types.ObjectId,
