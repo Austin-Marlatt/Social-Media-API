@@ -19,17 +19,18 @@
 
 * #### Clone the repo onto your machine
 * #### Run the following command to download the required dependencies, and spin up the server:
-* Follow the instruction video to see how the routes are being used
-
 ```
 npm i
 npm run start
 ```
+* #### Follow the instruction video to see how the routes are being used
 
 ## Usage
-### This Application is for demonstartional purposes
+
+This Application is too demonstrate a functioning API
+
 ## Video Demo
-https://github.com/Austin-Marlatt/Social-Media-API/blob/main/demo_video/Social-media_backend_demo.mp4
+https://drive.google.com/file/d/1u-lGCeY6Im5cilEttEAROHjlzXp_MKUD/view?usp=sharing
 
 
 ## Have Questions?
