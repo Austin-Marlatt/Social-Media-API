@@ -27,7 +27,7 @@ npm run start
 
 ## Usage
 
-This Application is too demonstrate a functioning API
+This Application is to demonstrate a functioning API
 
 ## Video Demo
 https://drive.google.com/file/d/1u-lGCeY6Im5cilEttEAROHjlzXp_MKUD/view?usp=sharing
