@@ -22,6 +22,6 @@ app.use(routes);
 // Waits for the connection to the DB to be establised and then spins up the server
 connection.once('open', () => {
   app.listen(PORT, () => {
-    console.log(`Server open at http://localhost${PORT}!`);
+    console.log(`Server open at http://localhost:${PORT}/`);
   });
 });

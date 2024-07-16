@@ -6,11 +6,14 @@ const userController = {
   async getUsers(req, res) {
     // try => Catch error handling
     try {
-      const userData = await User.find()
+        const userData = await User.find({})
       // '.select()' is a method that can include and exclude specific fields in a search
       // Here, we use `-` to exclude the version field from the response
-        .select('-__v')
-
+      .select('-__v')
+        // Populate the friends subdocument in the User Models
+      .populate('friends')
+        // Populate the thoughts subdocument in the User Models
+      .populate('thoughts');
       // Success, Return the data in JSON
       res.status(200).json(userData);
     } catch (err) {
@@ -40,7 +43,7 @@ const userController = {
         });
       }
       // Success, Return the found data
-      res.json(userData);
+      res.status(200).json(userData);
     } catch (err) {
       // Failure, return server error status and return the error in JSON
       res.status(500).json(err);
@@ -54,9 +57,10 @@ const userController = {
       const userData = await User.create(req.body);
 
       // Success, Return the newly made user
-      res.json(userData);
+      res.status(200).json(userData);
     } catch (err) {
       // Failure, return bad request status and return the err in JSON
+      console.log(err);
       res.status(400).json(err);
     }
   },

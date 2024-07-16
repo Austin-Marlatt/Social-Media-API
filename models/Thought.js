@@ -25,7 +25,7 @@ const thoughtSchema = new Schema(
       // Defaults to `Date.now` which returns UTC, which isn't very readable
       default: Date.now,
       // using the imported `moment` library, we can get the current time in a better format
-      get: moment().format("MMM Do YYYY")
+      get: () => moment().format("MMM Do YYYY")
     },
     username: {
       type: String,

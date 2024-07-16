@@ -1,7 +1,12 @@
-const router = require('express').Router();
-const userRoutes = require('./user-routes');
-const thoughtRoutes = require('./thought-routes');
+// Handles request made to the API 
 
+const router = require('express').Router();
+
+// Reference to the JS files that handle server requests
+const userRoutes = require('./userRoutes');
+const thoughtRoutes = require('./thoughtRoutes');
+
+// Designated Endpoints
 router.use('/users', userRoutes);
 router.use('/thoughts', thoughtRoutes);
 

@@ -7,10 +7,10 @@ const thoughtController = {
   async getThoughts(req, res) {
     // try => Catch error handling
     try {
-      const thoughtData = await Thought.find()
+      const thoughtData = await Thought.find({})
       // `.sort` how the data is returned,
       //  `createdAt: -1` returns the thoughts by the time they were created, in decending order
-        .sort({ createdAt: -1 });
+      .sort({ createdAt: -1 });
 
       // Success, Return the data in JSON
       res.status(200).json(thoughtData);
@@ -30,8 +30,10 @@ const thoughtController = {
 
       // If no Thought data is returned, return a "File Not Found" status and a message
       if (!thoughtData) {
-        return res.status(404).json({ message: 'Could not find a Thought matching this ID, Try again.' });
-      }
+        return res.status(404).json({
+          message: 'Could not find a Thought matching this ID, Try again.'
+        });
+      };
 
       // Success, Return the data in JSON
       res.status(200).json(thoughtData);
@@ -102,7 +104,9 @@ const thoughtController = {
   async deleteThought(req, res) {
     try {
       // Find a Thought using it's ID and delete
-      const thoughtData = await Thought.findOneAndDelete({ _id: req.params.thoughtId })
+      const thoughtData = await Thought.findOneAndDelete({
+        _id: req.params.thoughtId
+      });
 
       // If no Thought data is found, return a "File Not Found" status and an error message
       if (!thoughtData) {
@@ -116,7 +120,7 @@ const thoughtController = {
         // Thought ID being deleted
         { thoughts: req.params.thoughtId },
         // `$pull` removes any existing values in an array that match the parameters
-        { $pull: { thoughts: req.params.thoughtId } },
+        { $pull: { thoughts: [req.params.thoughtId] } },
         // Return the updated User *after* the thought has been removed
         { new: true }
       );
